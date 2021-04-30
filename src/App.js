@@ -18,10 +18,11 @@ const App = () => {
           "https://raw.githubusercontent.com/Lokenath/MyRepo/master/Test/package.json"
         );
         const postData = resData.data.pics;
-        // console.log(postData);
+        console.log(postData);
         setPosts(postData);
       } catch (error) {
         console.log(error);
+        throw new Error(error);
       }
     };
     fetchData();

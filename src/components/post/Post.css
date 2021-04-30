@@ -1,0 +1,35 @@
+.post-container {
+  display: inline-block;
+  border: 2px #56e1f3 solid;
+  max-width: 200px;
+}
+
+.image-container {
+  width: auto;
+  height: 150px;
+  display: inline-block;
+  border-bottom: 2px #56e1f3 solid;
+}
+
+.image-container > img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.like-container {
+  display: flex;
+  width: 25px;
+  justify-content: space-between;
+}
+
+.like-button {
+  margin-left: 9px;
+}
