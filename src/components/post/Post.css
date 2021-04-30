@@ -22,6 +22,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  border-bottom: 2px #56e1f3 solid;
 }
 
 .like-container {
@@ -32,4 +33,34 @@
 
 .like-button {
   margin-left: 9px;
+}
+
+.comment-container {
+  border-bottom: 2px #56e1f3 solid;
+}
+
+.comment-container > input {
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+.comment-container > button {
+  padding: 2px;
+  cursor: pointer;
+  height: 27px;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  width: 35px;
+  background-color: #56e1f3;
+}
+
+.comment-container > button:hover {
+  outline: none;
+  background-color: #04dcf8;
+}
+
+.like-button {
+  cursor: pointer;
 }

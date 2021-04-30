@@ -19,19 +19,23 @@ const FilterSection = () => {
 
   return (
     <section className="filter-section">
-      <p onClick={filterByLike} className="like-filters">
-        Most Liked
-      </p>{" "}
-      |{" "}
-      <p onClick={filterByComment} className="like-filters">
-        Most Commented
-      </p>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={filterSearch}
-        className="search-bar"
-      />
+      <div className="likes-container">
+        <p onClick={filterByLike} className="like-filters">
+          Most Liked
+        </p>{" "}
+        |{" "}
+        <p onClick={filterByComment} className="like-filters">
+          Most Commented
+        </p>
+      </div>
+      <div className="search-container">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={filterSearch}
+          className="search-bar"
+        />
+      </div>
     </section>
   );
 };

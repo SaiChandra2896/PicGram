@@ -11,7 +11,6 @@ const App = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    console.log("122");
     const fetchData = async () => {
       try {
         const resData = await axios.get(
