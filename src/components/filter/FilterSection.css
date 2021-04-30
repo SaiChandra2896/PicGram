@@ -1,0 +1,22 @@
+.filter-section {
+  color: #04dcf8;
+  padding: 10px 15px;
+  border-bottom: 1px solid #56e1f3;
+}
+
+.like-filters {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.like-filters:hover {
+  text-decoration: underline;
+}
+
+.search-bar {
+  padding: 7px;
+  outline: none;
+  border: 1px solid #56e1f3;
+  width: 200px;
+  margin-left: 150px;
+}
