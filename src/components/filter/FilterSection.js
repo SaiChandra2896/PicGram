@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./FilterSection.css";
 
-const FilterSection = () => {
+const FilterSection = ({ posts, updatePosts }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filterSearch = (e) => {
@@ -10,7 +10,9 @@ const FilterSection = () => {
   };
 
   const filterByLike = () => {
-    console.log("like filter");
+    posts.sort((a, b) => b.likes - a.likes);
+    console.log(posts, "filterLikes");
+    updatePosts(posts);
   };
 
   const filterByComment = () => {
@@ -34,6 +36,7 @@ const FilterSection = () => {
           value={searchTerm}
           onChange={filterSearch}
           className="search-bar"
+          placeholder="search images..."
         />
       </div>
     </section>

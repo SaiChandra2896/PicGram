@@ -27,10 +27,21 @@ const App = () => {
     fetchData();
   }, []);
 
+  // useEffect(() => {
+  //   setPosts(posts);
+  // }, [posts]);
+
+  const updatePosts = (postsData) => {
+    setPosts(postsData);
+  };
+
+  console.log(posts, "posts");
+
   return (
     <div className="app">
       <Header />
-      <FilterSection />
+      <FilterSection posts={posts} updatePosts={updatePosts} />
+      {console.log(posts, "posts 1")}
       <Posts posts={posts} />
     </div>
   );

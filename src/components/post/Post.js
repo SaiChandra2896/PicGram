@@ -5,23 +5,44 @@ import "./Post.css";
 const Post = ({ post }) => {
   const [comment, setComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
+  const [postState, setPostState] = useState(post);
 
   const writeComment = (e) => {
     setComment(e.target.value);
   };
 
   const toggleLike = () => {
-    if (isLiked) setIsLiked(false);
-    else setIsLiked(true);
+    if (isLiked) {
+      setIsLiked(false);
+      setPostState({
+        ...postState,
+        likes: postState.likes + 1,
+      });
+    } else {
+      setIsLiked(true);
+      setPostState({
+        ...postState,
+        likes: postState.likes - 1,
+      });
+    }
   };
+
+  const submitComment = () => {
+    setPostState({
+      ...postState,
+      comments: [...postState.comments, comment],
+    });
+    setComment("");
+  };
+
   return (
     <section className="post-container">
       <div className="image-container">
-        <img alt="post-display" src={post.url} />
+        <img alt="post-display" src={postState.url} />
       </div>
       <div className="info-container">
         <div className="like-container">
-          <p className="likes">{post.likes}</p>
+          <p className="likes">{postState.likes}</p>
           <p className="like-button" onClick={toggleLike}>
             {isLiked ? "unlike" : "like"}
           </p>
@@ -34,9 +55,13 @@ const Post = ({ post }) => {
           placeholder="Type your comment here"
           onChange={writeComment}
         />
-        <button>Post</button>
+        <button onClick={submitComment}>Post</button>
       </div>
-      <div className="comments-container"></div>
+      <div className="comments-container">
+        {postState.comments.map((comment, i) => (
+          <p key={i}>{comment}</p>
+        ))}
+      </div>
     </section>
   );
 };
