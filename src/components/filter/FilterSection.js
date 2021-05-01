@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //redux
 import { connect } from "react-redux";
-import { filterByLikes, filterByComments } from "../../actions/filter";
+import {
+  filterByLikes,
+  filterByComments,
+  filterBySearch,
+} from "../../actions/filter";
 
 import "./FilterSection.css";
 
-const FilterSection = ({ filterByLikes, filterByComments }) => {
+const FilterSection = ({ filterByLikes, filterByComments, filterBySearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    filterBySearch(searchTerm);
+  }, [searchTerm, filterBySearch]);
 
   const filterSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -39,6 +47,8 @@ const FilterSection = ({ filterByLikes, filterByComments }) => {
 
 const mapStateToProps = () => ({});
 
-export default connect(mapStateToProps, { filterByLikes, filterByComments })(
-  FilterSection
-);
+export default connect(mapStateToProps, {
+  filterByLikes,
+  filterByComments,
+  filterBySearch,
+})(FilterSection);

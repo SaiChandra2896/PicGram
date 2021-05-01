@@ -38,11 +38,17 @@ export const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         posts: state.posts.sort((a, b) => {
-          console.log(a.comments.length, b.comments.length);
           return b.comments.length - a.comments.length;
         }),
         loading: false,
         error: {},
+      };
+    case FILTER_BY_SEARCH:
+      return {
+        ...state,
+        posts: state.posts.filter((post) =>
+          post.category.toLowerCase().includes(payload)
+        ),
       };
     default:
       return state;
