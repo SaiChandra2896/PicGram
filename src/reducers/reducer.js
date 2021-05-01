@@ -26,4 +26,6 @@ export const postsReducer = (state = initialState, action) => {
   }
 };
 
-export const filterReducer = (state = initialState, action) => {};
+export const filterReducer = (state = initialState, action) => {
+  return state;
+};
