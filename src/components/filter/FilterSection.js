@@ -1,32 +1,26 @@
 import { useState } from "react";
 
+//redux
+import { connect } from "react-redux";
+import { filterByLikes, filterByComments } from "../../actions/filter";
+
 import "./FilterSection.css";
 
-const FilterSection = ({ posts, updatePosts }) => {
+const FilterSection = ({ filterByLikes, filterByComments }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filterSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const filterByLike = () => {
-    posts.sort((a, b) => b.likes - a.likes);
-    console.log(posts, "filterLikes");
-    updatePosts(posts);
-  };
-
-  const filterByComment = () => {
-    console.log("comment filter");
-  };
-
   return (
     <section className="filter-section">
       <div className="likes-container">
-        <p onClick={filterByLike} className="like-filters">
+        <p onClick={() => filterByLikes()} className="like-filters">
           Most Liked
         </p>{" "}
         |{" "}
-        <p onClick={filterByComment} className="like-filters">
+        <p onClick={() => filterByComments()} className="like-filters">
           Most Commented
         </p>
       </div>
@@ -43,4 +37,8 @@ const FilterSection = ({ posts, updatePosts }) => {
   );
 };
 
-export default FilterSection;
+const mapStateToProps = () => ({});
+
+export default connect(mapStateToProps, { filterByLikes, filterByComments })(
+  FilterSection
+);

@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { postsReducer, filterReducer } from "./reducer";
+import { postsReducer } from "./reducer";
 
-export default combineReducers({ postsReducer, filterReducer });
+export default combineReducers({ postsReducer });

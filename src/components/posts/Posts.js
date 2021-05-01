@@ -1,11 +1,18 @@
+import { useEffect } from "react";
 import { connect } from "react-redux";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
+
+import { getPosts } from "../../actions/posts";
 
 import Post from "../post/Post";
 
 import "./Posts.css";
 
-const Posts = ({ post: { posts, loading } }) => {
+const Posts = ({ getPosts, post: { posts, loading } }) => {
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
   return loading ? (
     <h1>loading</h1>
   ) : (
@@ -19,8 +26,16 @@ const Posts = ({ post: { posts, loading } }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  post: state.postsReducer,
-});
+Posts.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
+};
 
-export default connect(mapStateToProps)(Posts);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    post: state.postsReducer,
+  };
+};
+
+export default connect(mapStateToProps, { getPosts })(Posts);
