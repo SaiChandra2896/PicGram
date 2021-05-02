@@ -2,11 +2,6 @@ import "./Modal.css";
 
 const Modal = ({ imgUrl, updateUrl }) => {
   return (
-    // <div className="modal-container">
-    //   <div className="image-container">
-    //     <img src={imgUrl} alt="post" />
-    //   </div>
-    // </div>
     <div
       style={{ display: imgUrl ? "block" : "none" }}
       className="modal-bg"
