@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./Post.css";
 
-const Post = ({ post }) => {
+const Post = ({ post, updateUrl }) => {
   const [comment, setComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [postState, setPostState] = useState(post);
@@ -37,7 +37,7 @@ const Post = ({ post }) => {
 
   return (
     <section className="post-container">
-      <div className="image-container">
+      <div className="image-container" onClick={() => updateUrl(postState.url)}>
         <img alt="post-display" src={postState.url} />
       </div>
       <div className="info-container">

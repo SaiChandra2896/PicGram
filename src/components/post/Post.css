@@ -2,12 +2,19 @@
   display: inline-block;
   border: 2px #56e1f3 solid;
   max-width: 200px;
+  height: 370px;
+  overflow-y: scroll;
+}
+
+.post-container::-webkit-scrollbar {
+  display: none;
 }
 
 .image-container {
   width: auto;
   height: 150px;
   display: inline-block;
+  cursor: pointer;
   border-bottom: 2px #56e1f3 solid;
 }
 
