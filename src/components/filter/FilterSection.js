@@ -22,7 +22,7 @@ const FilterSection = ({ filterByLikes, filterByComments, filterBySearch }) => {
   };
 
   return (
-    <section className="filter-section">
+    <section className="filter-section" data-test="filter-section">
       <div className="likes-container">
         <p onClick={() => filterByLikes()} className="like-filters">
           Most Liked
